@@ -1,13 +1,25 @@
-const sentence =
+let sentence = "";
+const sentence1 = "The quick brown fox jumps over the lazy dog.";
+const sentence2 = "A journey of a thousand miles begins with a single step.";
+const sentence3 = "In the beginning God created the heavens and the earth.";
+const sentence4 =
+  "To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.";
+const sentence5 =
+  "Life is really simple, but we insist on making it complicated.";
+const sentence6 =
+  "The only limit to our realization of tomorrow will be our doubts of today.";
+const sentence7 =
   "Smart people learn from everything and everyone, average people from their experience, stupid people already, have all the answers";
 
+sentence = sentence1; // please change the sentence here to test the other sentences
+
 function findTheLongestWord(sentence) {
-  const words = sentence.split(" "); // ["Smart", "people", "learn", "from", "everything", "and", "everyone,", "average", "people", "from", "their", "experience,", "stupid", "people", "already,", "have", "all", "the", "answers"]
+  const words = sentence.split(/\s+|[,.'";!?]+/); // Split by spaces and common punctuation marks/\s+|[,.'";!?]+/); // Split by spaces and common punctuation marks
 
   for (let i = 0; i < words.length; i++) {
     // Iterate over the array of words to replace commas with an empty string
     if (words[i].includes(",")) {
-      words[i] = words[i].replace(",", "");
+      words[i] = words[i].replace(/[,.'";!?]+/g, "");
     }
   }
 
@@ -40,6 +52,6 @@ function findTheLongestWord(sentence) {
   return longestWord;
 }
 
-console.log("result:", findTheLongestWord(sentence)); // Expected output: 'experience'
+console.log("result:", findTheLongestWord(sentence)); // Expected output: 'experience' (sentence7)
 
 module.exports = findTheLongestWord;

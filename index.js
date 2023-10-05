@@ -17,7 +17,6 @@ function findTheLongestWord(sentence) {
   const words = sentence.split(/\s+|[,.'";!?]+/); // Split by spaces and common punctuation marks/\s+|[,.'";!?]+/); // Split by spaces and common punctuation marks
 
   for (let i = 0; i < words.length; i++) {
-    // Iterate over the array of words to replace commas with an empty string
     if (words[i].includes(",")) {
       words[i] = words[i].replace(/[,.'";!?]+/g, "");
     }
